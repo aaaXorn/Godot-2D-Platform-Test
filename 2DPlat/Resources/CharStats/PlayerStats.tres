@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://mng1xqi7v87y"]
+
+[ext_resource type="Script" path="res://Scripts/Character/Resources/CharStats.cs" id="1_jj3qw"]
+
+[resource]
+script = ExtResource("1_jj3qw")
+gravity_force = 55000.0
+target_h_spd = 500.0
+h_spd_accel = 1000.0

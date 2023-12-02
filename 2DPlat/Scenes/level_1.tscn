@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://plf77yfhfirt"]
+
+[ext_resource type="PackedScene" uid="uid://duxgudlt05a3t" path="res://Prefabs/Player/PlayerImport.tscn" id="1_hude7"]
+[ext_resource type="Texture2D" uid="uid://brtpxxepgvulo" path="res://Sprites/kenney_platformer-art-extended-tileset/PNG Grass/slice03_03.png" id="2_ydmac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2h51"]
+size = Vector2(70, 70)
+
+[node name="Level 1" type="Node2D"]
+
+[node name="PlayerImport" parent="." instance=ExtResource("1_hude7")]
+position = Vector2(542, 228)
+
+[node name="L1 1" type="Node2D" parent="."]
+position = Vector2(547, 466)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="L1 1"]
+position = Vector2(18, 104)
+scale = Vector2(15.36, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="L1 1/StaticBody2D"]
+texture = ExtResource("2_ydmac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1 1/StaticBody2D"]
+shape = SubResource("RectangleShape2D_i2h51")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="L1 1"]
+position = Vector2(24.9999, -412)
+scale = Vector2(15.36, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="L1 1/StaticBody2D2"]
+texture = ExtResource("2_ydmac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1 1/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_i2h51")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="L1 1"]
+position = Vector2(-484, -94)
+rotation = 1.56397
+scale = Vector2(15.36, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="L1 1/StaticBody2D3"]
+texture = ExtResource("2_ydmac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1 1/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_i2h51")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="L1 1"]
+position = Vector2(542, -62)
+rotation = 1.56397
+scale = Vector2(15.36, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="L1 1/StaticBody2D4"]
+texture = ExtResource("2_ydmac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1 1/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_i2h51")
