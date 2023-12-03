@@ -18,6 +18,8 @@ public partial class InputManager : Node
 	}
 
 	public Vector2 axis_move = new Vector2();
+	public bool jump = false;
+	public bool attack = false;
 
 	public override void _Process(double delta)
 	{
@@ -36,5 +38,8 @@ public partial class InputManager : Node
 		}
 
 		axis_move.X = _h_move;
+
+		jump = Input.IsActionPressed("jump");
+		attack = Input.IsActionPressed("attack");
 	}
 }

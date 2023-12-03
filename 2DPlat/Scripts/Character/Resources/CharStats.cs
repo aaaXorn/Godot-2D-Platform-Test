@@ -5,6 +5,8 @@ public partial class CharStats : Resource
 {
 	[Export]
 	public float gravity_force {get; protected set;} = 750f;
+	[Export]
+	public float gravity_rot_spd {get; protected set;} = 45f;
 
 	[Export]
 	public float target_h_spd {get; protected set;} = 500f;

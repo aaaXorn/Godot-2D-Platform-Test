@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://duxgudlt05a3t"]
+[gd_scene load_steps=8 format=3 uid="uid://duxgudlt05a3t"]
 
 [ext_resource type="Script" path="res://Scripts/Input/InputManager.cs" id="1_hrdhh"]
 [ext_resource type="Script" path="res://Scripts/Character/Player/PlayerController.cs" id="1_lmkih"]
 [ext_resource type="Resource" uid="uid://mng1xqi7v87y" path="res://Resources/CharStats/PlayerStats.tres" id="2_a5i0g"]
 [ext_resource type="SpriteFrames" uid="uid://io3mjvh8wcxc" path="res://Sprites/Animations/anim_player.tres" id="2_fi1c3"]
+[ext_resource type="Texture2D" uid="uid://b7uqgytjjrk1n" path="res://Sprites/kenney_platformer-art-extended-tileset/PNG Cake/slice06_06.png" id="2_gmfrr"]
 [ext_resource type="PhysicsMaterial" uid="uid://b2fvre4fis8ks" path="res://Resources/PhysicsMaterial/PlayerPhysMat.tres" id="2_q36u6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5b2x4"]
@@ -15,11 +16,20 @@ height = 80.0
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("1_hrdhh")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="GravityDirection" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="GravityDirection"]
+position = Vector2(0, -50)
+rotation = 2.35619
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_gmfrr")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("gravity_node")]
 physics_material_override = ExtResource("2_q36u6")
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_lmkih")
+gravity_node = NodePath("../GravityDirection")
 stats = ExtResource("2_a5i0g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
