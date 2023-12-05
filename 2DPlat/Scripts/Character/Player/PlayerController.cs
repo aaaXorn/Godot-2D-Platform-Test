@@ -10,7 +10,25 @@ public partial class PlayerController : CharController
 		input_axis_move = InputManager.s_singleton.axis_move;
 		//GD.Print(input_axis_move.X);
 
-		if(InputManager.s_singleton.jump) ChangeGravityDirection(Vector2.Right);
-		else if(InputManager.s_singleton.attack) ChangeGravityDirection(Vector2.Left);
+		if(Input.IsActionPressed("grav_right"))
+		{
+			ChangeGravityDirection(Vector2.Right);
+			rot_vel_angle_up = true;
+		}
+		else if(Input.IsActionPressed("grav_left"))
+		{
+			ChangeGravityDirection(Vector2.Left);
+			rot_vel_angle_up = true;
+		}
+		else if(Input.IsActionPressed("grav_up"))
+		{
+			ChangeGravityDirection(Vector2.Up);
+			rot_vel_angle_up = false;
+		}
+		else if(Input.IsActionPressed("grav_down"))
+		{
+			ChangeGravityDirection(Vector2.Down);
+			rot_vel_angle_up = false;
+		}
 	}
 }

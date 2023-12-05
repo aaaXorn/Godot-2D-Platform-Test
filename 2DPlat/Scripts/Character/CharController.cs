@@ -10,12 +10,26 @@ public partial class CharController : RigidBody2D
 	protected Vector2 gravity_direction = Vector2.Up;
 
 	protected float gravity_angle => Vector2.Down.AngleTo(gravity_direction);
-	protected Vector2 rotated_velocity => LinearVelocity.Rotated(Vector2.Down.AngleTo(gravity_direction));
+	protected Vector2 rotated_velocity => LinearVelocity.Rotated(RotVelAngle());
+
+	protected float RotVelAngle()
+	{
+		if(rot_vel_angle_up)
+		{
+			return Vector2.Up.AngleTo(gravity_direction);
+		}
+		else
+		{
+			return Vector2.Down.AngleTo(gravity_direction);
+		}
+	}
+
+	public bool rot_vel_angle_up = false;
 
 	public void ChangeGravityDirection(Vector2 _dir)
 	{
 		gravity_direction = _dir;
-		gravity_node.GlobalRotation = gravity_direction.AngleTo(Vector2.Down);
+		gravity_node.GlobalRotation = gravity_direction.AngleTo((rot_vel_angle_up ? Vector2.Down : Vector2.Up));
 	}
 
 	protected bool can_move = true;
@@ -112,7 +126,7 @@ public partial class CharController : RigidBody2D
 		ApplyCentralForce(gravity_direction * stats.gravity_force * (float)_delta);
 		
 		//RotateToGravity(_delta);
-		//GlobalRotation = gravity_direction.AngleTo(Vector2.Down);
+		GlobalRotation = gravity_direction.AngleTo(Vector2.Down);
 	}
 
 	protected virtual void RotateToGravity( double _delta)
